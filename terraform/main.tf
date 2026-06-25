@@ -53,6 +53,8 @@ resource "aws_instance" "web" {
 
   ami           = "ami-08f44e8eca9095668"
   instance_type = "t2.micro"
+  key_name = "cloud-assignment-key"
+
 
   vpc_security_group_ids = [
     aws_security_group.web_sg.id
