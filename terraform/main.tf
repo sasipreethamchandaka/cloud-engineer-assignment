@@ -62,13 +62,14 @@ resource "aws_instance" "web" {
 
   iam_instance_profile = aws_iam_instance_profile.profile.name
 
-  user_data = <<EOF
-#!/bin/bash
-apt update -y
-apt install nginx -y
-systemctl enable nginx
-systemctl start nginx
-EOF
+ user_data = <<-EOF
+ #!/bin/bash
+ dnf update -y
+ dnf install nginx -y
+ systemctl enable nginx
+ systemctl start nginx
+
+ EOFF
 
   tags = {
     Name = "cloud-assignment"
