@@ -1,4 +1,4 @@
-name: Deploy Websites
+name: Deploy Website
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
 
-    runs-on: nginx-latest
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -30,9 +30,10 @@ jobs:
 
         with:
           host: ${{ secrets.HOST }}
-          username: ubuntu
+          username: ec2-user
           key: ${{ secrets.SSH_KEY }}
 
           script: |
-            sudo cp -r /tmp/website/* /var/www/html/
+            sudo mkdir -p /usr/share/nginx/html
+            sudo cp -r /tmp/website/* /usr/share/nginx/html/
             sudo systemctl restart nginx
