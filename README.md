@@ -33,8 +33,8 @@ Inbound Rules:
 
 | Port | Protocol | Purpose |
 
-| 22 | TCP | SSH Access |
-| 80 | TCP | HTTP Access |
+| 22 | TCP | SSH Access 
+| 80 | TCP | HTTP Access 
 
 ### IAM Role
 
@@ -53,7 +53,7 @@ Terraform is used to provision:
 
 ### Initialize Terraform
 
-```bash
+
 terraform init
 
 Validate Configuration
